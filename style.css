@@ -1,85 +1,90 @@
-body {
-    margin: 0;
-    font-family: "Segoe UI", sans-serif;
-    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
-    color: white;
-    display: flex;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-/* Sidebar Glass */
-.sidebar {
-    width: 260px;
-    height: 100vh;
-    position: fixed;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(20px);
-    border-right: 1px solid rgba(255,255,255,0.1);
-    padding: 25px;
-    text-align: center;
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#667eea,#764ba2,#ff6b6b);
+    background-size:300% 300%;
+    animation:gradient 8s ease infinite;
 }
 
-/* Profile */
-.profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 2px solid #00f5ff;
-    object-fit: cover;
-    margin-bottom: 10px;
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
-/* Name */
-.sidebar h2 {
-    margin: 10px 0;
-    color: #00f5ff;
+.container{
+    width:90%;
+    max-width:900px;
 }
 
-/* Menu */
-.sidebar a {
-    display: block;
-    margin: 12px 0;
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-    border-radius: 10px;
-    transition: 0.3s;
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    padding:40px;
+    border-radius:25px;
+    color:white;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* Hover animation */
-.sidebar a:hover {
-    background: rgba(0,245,255,0.15);
-    transform: translateX(8px);
+h1{
+    margin-bottom:15px;
 }
 
-/* Main area */
-.main {
-    margin-left: 280px;
-    padding: 40px;
+.subtitle{
+    font-size:20px;
+    margin-bottom:25px;
 }
 
-/* Glass Card */
-.card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+h2{
+    margin-top:20px;
+    color:#ffe082;
 }
 
-/* Hover lift */
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 30px rgba(0,245,255,0.2);
+ul{
+    margin-left:20px;
+    margin-top:10px;
 }
 
-/* Headings */
-h1, h2, h3 {
-    color: #00f5ff;
+li{
+    margin:8px 0;
 }
 
-/* Smooth animation */
-* {
-    transition: all 0.3s ease;
+.places{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:15px;
+    margin-top:15px;
+}
+
+.places div{
+    background:rgba(255,255,255,0.2);
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    background:#ff9800;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#ff5722;
+    transform:translateY(-3px);
 }
