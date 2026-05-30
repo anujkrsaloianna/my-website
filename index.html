@@ -1,91 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Animated Background */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(-45deg,#ff6b6b,#6c63ff,#00c9a7,#ff9671);
+    background-size:400% 400%;
+    animation:gradient 12s ease infinite;
+    z-index:-2;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* Floating Circles */
+.circle{
+    position:fixed;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+    animation:float 10s infinite linear;
+    z-index:-1;
+}
+
+.c1{
+    width:120px;
+    height:120px;
+    left:10%;
+    top:20%;
+}
+
+.c2{
+    width:180px;
+    height:180px;
+    right:10%;
+    top:50%;
+}
+
+.c3{
+    width:80px;
+    height:80px;
+    left:70%;
+    top:10%;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-40px);
+    }
+}
+
+/* Navigation */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(10px);
+    padding:15px;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ffd700;
+}
+
+/* Sections */
+section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+}
+
+.card{
+    width:90%;
+    max-width:900px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    margin-bottom:20px;
+    color:#ffd700;
+}
+
+h2{
+    margin-top:20px;
+}
+
+ul{
+    margin-left:20px;
+    margin-top:10px;
+}
+
+li{
+    margin:8px 0;
+}
+
+.travel-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:15px;
+    margin-top:15px;
+}
+
+.travel-grid div{
+    background:rgba(255,255,255,0.2);
+    padding:15px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.contact{
+    line-height:2;
+}
+</style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+
 <nav>
-  <h2>MySite</h2>
-  <div>
-    <a href="#home">Home</a>
-    <a href="#travel">Travel</a>
-    <a href="#work">Work</a>
-    <a href="#contact">Contact</a>
-  </div>
+    <ul>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#hobby">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
 </nav>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <h1 class="fade-in">Hi, I'm a Developer</h1>
-  <p class="fade-in delay">Cloud | AWS | Creator</p>
-  <button onclick="scrollToSection('work')">Explore</button>
-</section>
+<!-- Page 1 -->
+<section id="profile">
+    <div class="card">
+        <h1>👨‍💻 My Profile</h1>
+        <h2>Name</h2>
+        <p>Anuj Saloi</p>
 
-<!-- BIO -->
-<section class="section reveal">
-  <h2>About Me</h2>
-  <div class="card">
-    <p>Name: Your Name</p>
-    <p>Location: Guwahati, Assam</p>
-    <p>Work: Cloud Hosting, AWS</p>
-  </div>
-</section>
+        <h2>Qualification</h2>
+        <p>BCA, MCA, Web Development, Software Solutions</p>
 
-<!-- TRAVEL -->
-<section id="travel" class="section reveal">
-  <h2>Travel Videos</h2>
-  <div class="card">
-    <iframe width="100%" height="300"
-      src="https://www.youtube.com/embed/YOUR_VIDEO_ID">
-    </iframe>
-  </div>
-
-  <div class="card">
-    <h3>Travel Guidance</h3>
-    <p>Budget tips, routes, safety and food exploration.</p>
-  </div>
-</section>
-
-<!-- WORK -->
-<section id="work" class="section reveal">
-  <h2>My Work</h2>
-
-  <div class="grid">
-    <div class="card hover">
-      <h3>AWS Project</h3>
-      <p>Deployed scalable cloud infrastructure.</p>
+        <h2>Work Experience</h2>
+        <ul>
+            <li>10+ Years in IT Industry</li>
+            <li>Government Project Development</li>
+            <li>Web Portal & Software Development</li>
+            <li>Cloud & Server Management</li>
+        </ul>
     </div>
-
-    <div class="card hover">
-      <h3>Gov Portal</h3>
-      <p>Worked on public service systems.</p>
-    </div>
-
-    <div class="card hover">
-      <h3>Achievements</h3>
-      <p>Multiple successful deployments.</p>
-    </div>
-  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section reveal">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>Email: your@email.com</p>
-    <p>Phone: +91 XXXXXXXX</p>
-  </div>
+<!-- Page 2 -->
+<section id="hobby">
+    <div class="card">
+        <h1>🌍 Hobbies & Travel</h1>
+
+        <h2>My Hobbies</h2>
+        <ul>
+            <li>Traveling</li>
+            <li>Photography</li>
+            <li>Reading Books</li>
+            <li>Learning New Technology</li>
+        </ul>
+
+        <h2>Places Visited</h2>
+        <div class="travel-grid">
+            <div>Guwahati</div>
+            <div>Shillong</div>
+            <div>Kaziranga</div>
+            <div>Tawang</div>
+            <div>Delhi</div>
+            <div>Gangtok</div>
+        </div>
+    </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 My Portfolio</p>
-</footer>
+<!-- Page 3 -->
+<section id="contact">
+    <div class="card">
+        <h1>📞 Contact & Achievements</h1>
 
-<script src="script.js"></script>
+        <div class="contact">
+            <p><strong>Email:</strong> anuj@example.com</p>
+            <p><strong>Phone:</strong> +91 9876543210</p>
+        </div>
+
+        <h2>🏆 Achievements</h2>
+        <ul>
+            <li>Successfully Developed Multiple Government Portals</li>
+            <li>Managed Large Scale IT Projects</li>
+            <li>Implemented Digital Transformation Solutions</li>
+        </ul>
+
+        <h2>🚀 My Work</h2>
+        <ul>
+            <li>Website Development</li>
+            <li>Software Development</li>
+            <li>Cloud Infrastructure</li>
+            <li>IT Consulting</li>
+        </ul>
+    </div>
+</section>
+
 </body>
 </html>
